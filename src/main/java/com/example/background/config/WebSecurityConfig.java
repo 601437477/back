@@ -78,6 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable();
         http.authorizeRequests().
+                antMatchers("/").permitAll().
                 //antMatchers("/getUser").hasAuthority("query_user").
                 //antMatchers("/**").fullyAuthenticated().
                 withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
@@ -101,7 +102,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //异常处理(权限拒绝、登录失效等)
                 and().exceptionHandling().
                     accessDeniedHandler(accessDeniedHandler).//权限拒绝处理逻辑
-                    authenticationEntryPoint(authenticationEntryPoint).//匿名用户访问无权限资源时的异常处理
+                    authenticationEntryPoint(authenticationEntryPoint).//匿名用户访问无权限资源时的异常处
                 //会话管理
                 and().sessionManagement().
                     maximumSessions(1).//同一账号同时登录最大用户数

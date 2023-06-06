@@ -4,8 +4,8 @@
 
     <resultMap type="com.example.background.entity.Bet" id="BetMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="kind" column="kind" jdbcType="VARCHAR"/>
-        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="kind" column="kind" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
         <result property="data" column="data" jdbcType="VARCHAR"/>
         <result property="odds" column="odds" jdbcType="VARCHAR"/>
         <result property="money" column="money" jdbcType="VARCHAR"/>

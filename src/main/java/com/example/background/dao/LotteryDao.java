@@ -5,7 +5,7 @@ import com.example.background.entity.Lottery;
 
 import java.util.List;
 
-public interface LotterytDao {
+public interface LotteryDao {
 
     /**
      * 通过ID查询单条数据
@@ -55,4 +55,6 @@ public interface LotterytDao {
      * @return 对象列表
      */
     List<Lottery> queryLottery(LotterySearchVo searchVo);
+
+    Lottery queryLatest();
 }

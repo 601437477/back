@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class Bet implements Serializable {
 
-    private String id;
+    private Integer id;
     // 1 : 特码 3 : 正码 5: 连码 6:平特
     private Integer kind;
 
@@ -22,5 +22,5 @@ public class Bet implements Serializable {
 
     private Date createDate;
 
-    private String createUser;
+    private Integer createUser;
 }

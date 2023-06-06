@@ -2,6 +2,8 @@ package com.example.background.domain;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class LotterySearchVo {
     private String id;
@@ -12,9 +14,11 @@ public class LotterySearchVo {
 
     private String number;
 
-    private String drawingTime;
+    private Date drawingTime;
 
-    private String beginDate;
+    private Date beginDate;
 
-    private String endDate;
+    private Date endDate;
+
+    private Integer limit;
 }

@@ -47,4 +47,6 @@ public interface LotteryService {
      * @return 实例对象
      */
     List<Lottery> queryLottery(LotterySearchVo searchVo);
+
+    Lottery queryLatest();
 }
