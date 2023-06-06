@@ -9,10 +9,10 @@ import java.util.Date;
 public class Bet implements Serializable {
 
     private String id;
+    // 1 : 特码 3 : 正码 5: 连码 6:平特
+    private Integer kind;
 
-    private String kind;
-
-    private String type;
+    private Integer type;
 
     private String data;
 
