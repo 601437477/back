@@ -2,7 +2,6 @@ package com.example.background.dao;
 
 import com.example.background.domain.BetSearchVo;
 import com.example.background.entity.Bet;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 

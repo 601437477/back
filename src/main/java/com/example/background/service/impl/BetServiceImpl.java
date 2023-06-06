@@ -5,9 +5,11 @@ import com.example.background.domain.BetSearchVo;
 import com.example.background.entity.Bet;
 import com.example.background.service.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BetServiceImpl implements BetService {
 
     @Autowired
