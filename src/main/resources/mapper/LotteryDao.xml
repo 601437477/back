@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.security.dao.LotteryDao">
+
+    <resultMap type="com.example.background.entity.Lottery" id="LotteryMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="period" column="period" jdbcType="VARCHAR"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="number" column="number" jdbcType="VARCHAR"/>
+        <result property="drawingTime" column="drawing_time" jdbcType="TIMESTAMP"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="createUser" column="create_user" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="LotteryMap">
+        select
+          id, period, code, number, drawing_time, create_date, create_user
+        from Lottery
+        where id = #{id}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="LotteryMap">
+        select
+        id, period, code, number, drawing_time, create_date, create_user
+        from Lottery
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="permissionCode != null and permissionCode != ''">
+                and permission_code = #{permissionCode}
+            </if>
+            <if test="permissionName != null and permissionName != ''">
+                and permission_name = #{permissionName}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into Lottery(id, period, code, number, drawing_time, create_date, create_user)
+        values (#{id}, #{period}, #{code}, #{number}, #{drawing_time}, #{createDate}, #{createUser})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update Lottery
+        <set>
+            <if test="permissionCode != null and permissionCode != ''">
+                permission_code = #{permissionCode},
+            </if>
+            <if test="permissionName != null and permissionName != ''">
+                permission_name = #{permissionName},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from Lottery where id = #{id}
+    </delete>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryLottery" resultMap="LotteryMap" parameterType="com.example.background.domain.LotterySearchVo">
+        select
+        id, period, code, number, drawing_time, create_date, create_user
+        from Lottery
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="period != null and period != ''">
+                and kind = #{period}
+            </if>
+            <if test="code != null and code != ''">
+                and code = #{code}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
