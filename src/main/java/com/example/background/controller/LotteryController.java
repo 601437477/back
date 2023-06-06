@@ -25,7 +25,7 @@ public class LotteryController {
      * @return
      */
     @GetMapping("/getLatest")
-    public JsonResult getUser() {
+    public JsonResult getLatest() {
         Lottery lottery = lotteryService.queryLatest();
         return ResultTool.success(lottery);
     }
@@ -44,10 +44,35 @@ public class LotteryController {
         return ResultTool.success(lotteries);
     }
 
+    /**
+     * 插入彩票信息
+     * @param lottery
+     * @return
+     */
     @PostMapping("/insert")
     public JsonResult insert(@Validated @RequestBody Lottery lottery) {
         Lottery lotterie = lotteryService.insert(lottery);
         return ResultTool.success(lotterie);
     }
 
+    /**
+     * 删除彩票信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/delete")
+    public JsonResult delete(@RequestParam("id") Integer id) {
+        return ResultTool.success(lotteryService.deleteById(id));
+    }
+
+    /**
+     * 更新彩票
+     * @param lottery
+     * @return
+     */
+    @PostMapping("update")
+    public JsonResult update(@RequestBody Lottery lottery) {
+        lotteryService.update(lottery);
+        return ResultTool.success();
+    }
 }
