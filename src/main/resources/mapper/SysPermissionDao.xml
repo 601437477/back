@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.security.dao.SysPermissionDao">
 
-    <resultMap type="com.spring.security.entity.SysPermission" id="SysPermissionMap">
+    <resultMap type="com.example.background.entity.SysPermission" id="SysPermissionMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="permissionCode" column="permission_code" jdbcType="VARCHAR"/>
         <result property="permissionName" column="permission_name" jdbcType="VARCHAR"/>

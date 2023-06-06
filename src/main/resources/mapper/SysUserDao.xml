@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.security.dao.SysUserDao">
 
-    <resultMap type="com.spring.security.entity.SysUser" id="SysUserMap">
+    <resultMap type="com.example.background.entity.SysUser" id="SysUserMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="account" column="account" jdbcType="VARCHAR"/>
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
